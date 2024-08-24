@@ -1,8 +1,8 @@
 [package]
 name = "compute-pi"
-version = "0.2.5"
+version = "1.0.0"
 authors = ["Katsutoshi Seki"]
-edition = "2018"
+edition = "2021"
 description = "A Rust library designed for computing pi to millions of digits."
 license = "MIT"
 repository = "https://github.com/sekika/compute-pi"
@@ -17,4 +17,4 @@ path = "src/main.rs"
 path = "src/lib.rs"
 
 [dependencies]
-rug = "1.24"
+rug = "1.25"
