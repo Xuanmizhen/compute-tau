@@ -3,13 +3,14 @@
 use rug::{Float, ops::Pow};
 use std::convert::TryFrom;
 
+// TODO: Check if the number 1,292,913,982 should be the same with the main pi branch (which is 1,292,913,983).
 /// Calculates the value of tau to a specified number of decimal places using
 /// the Gauss-Legendre algorithm and returns Float value.
 ///
 /// # Arguments
 ///
 /// * `digits` - The number of decimal places of tau to calculate,
-///              not to exceed 1,292,913,983.
+///              not to exceed 1,292,913,982.
 ///
 /// # Returns
 ///
@@ -17,7 +18,7 @@ use std::convert::TryFrom;
 /// number of decimal places.
 ///
 pub fn compute_tau(digits: usize) -> Float {
-    let precision = ((digits as f64) * 3.3219280948874).ceil() as u32 + 10;
+    let precision = ((digits as f64) * 3.3219280948874).ceil() as u32 + 10 + 1;
     let threshold = Float::with_val(precision, 10).pow(-i32::try_from(digits).unwrap());
     let mut a = Float::with_val(precision, 1);
     let two = Float::with_val(precision, 2);
@@ -75,7 +76,7 @@ mod tests {
     #[test]
     fn test_compute_tau_10_digits() {
         let tau_computed = compute_tau(10);
-        let tau_expected = Float::with_val(256, 3.1415926535);
+        let tau_expected = Float::with_val(256, 6.2831853071);
         assert!((tau_computed - &tau_expected).abs() < Float::with_val(256, 1e-10));
     }
 
