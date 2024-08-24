@@ -3,20 +3,20 @@
 use rug::{Float, ops::Pow};
 use std::convert::TryFrom;
 
-/// Calculates the value of pi to a specified number of decimal places using
+/// Calculates the value of tau to a specified number of decimal places using
 /// the Gauss-Legendre algorithm and returns Float value.
 ///
 /// # Arguments
 ///
-/// * `digits` - The number of decimal places of pi to calculate,
+/// * `digits` - The number of decimal places of tau to calculate,
 ///              not to exceed 1,292,913,983.
 ///
 /// # Returns
 ///
-/// A `Float` representing the calculated value of pi to the specified
+/// A `Float` representing the calculated value of tau to the specified
 /// number of decimal places.
 ///
-pub fn compute_pi(digits: usize) -> Float {
+pub fn compute_tau(digits: usize) -> Float {
     let precision = ((digits as f64) * 3.3219280948874).ceil() as u32 + 10;
     let threshold = Float::with_val(precision, 10).pow(-i32::try_from(digits).unwrap());
     let mut a = Float::with_val(precision, 1);
@@ -45,27 +45,27 @@ pub fn compute_pi(digits: usize) -> Float {
         }
         pi_old = pi;
     };
-    pi_result
+    pi_result * 2
 }
 
-/// Calculates the value of pi to a specified number of decimal places using
+/// Calculates the value of tau to a specified number of decimal places using
 /// the Gauss-Legendre algorithm and returns String value.
 ///
 /// # Arguments
 ///
-/// * `digits` - The number of decimal places of pi to calculate,
+/// * `digits` - The number of decimal places of tau to calculate,
 ///              not to exceed 1,292,913,983.
 ///
 /// # Returns
 ///
-/// A `String` representing the calculated value of pi to the specified
+/// A `String` representing the calculated value of tau to the specified
 /// number of decimal places.
 ///
-pub fn compute_pi_str(digits: usize) -> String {
-    let pi = compute_pi(digits);
-    let pi_str = pi.to_string_radix(10, Some(digits + 5));
-    let pi_str_trimmed = pi_str[0..(digits + 2)].to_string();
-    pi_str_trimmed
+pub fn compute_tau_str(digits: usize) -> String {
+    let tau = compute_tau(digits);
+    let tau_str = tau.to_string_radix(10, Some(digits + 5));
+    let tau_str_trimmed = tau_str[0..(digits + 2)].to_string();
+    tau_str_trimmed
 }
 
 #[cfg(test)]
@@ -73,20 +73,20 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_compute_pi_10_digits() {
-        let pi_computed = compute_pi(10);
-        let pi_expected = Float::with_val(256, 3.1415926535);
-        assert!((pi_computed - &pi_expected).abs() < Float::with_val(256, 1e-10));
+    fn test_compute_tau_10_digits() {
+        let tau_computed = compute_tau(10);
+        let tau_expected = Float::with_val(256, 3.1415926535);
+        assert!((tau_computed - &tau_expected).abs() < Float::with_val(256, 1e-10));
     }
 
     #[test]
-    fn test_compute_pi_str() {
+    fn test_compute_tau_str() {
         // Test with 5 digits
-        let pi_str_5 = compute_pi_str(5);
-        assert_eq!(pi_str_5, "3.14159");
+        let tau_str_5 = compute_tau_str(5);
+        assert_eq!(tau_str_5, "6.28318");
 
         // Test with 10 digits
-        let pi_str_10 = compute_pi_str(10);
-        assert_eq!(pi_str_10, "3.1415926535");
+        let tau_str_10 = compute_tau_str(10);
+        assert_eq!(tau_str_10, "6.2831853071");
     }
 }

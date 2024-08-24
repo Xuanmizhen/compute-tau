@@ -1,15 +1,15 @@
-use compute_pi::compute_pi_str;
+use compute_tau::compute_tau_str;
 use std::env;
 
 /// The main function of the program. It parses the command-line arguments
-/// to determine the number of decimal places of pi to calculate and then
+/// to determine the number of decimal places of tau to calculate and then
 /// prints the calculated value to the standard output.
 ///
 /// # Arguments
 ///
 /// This function expects a single command-line argument:
 ///
-/// * The first argument should be the number of decimal places of pi to calculate.
+/// * The first argument should be the number of decimal places of tau to calculate.
 ///
 /// # Panics
 ///
@@ -21,10 +21,10 @@ use std::env;
 /// Run the program from the command line:
 ///
 /// ```shell
-/// compute-pi 100
+/// compute-tau 100
 /// ```
 ///
-/// This will calculate and print the value of pi to 100 decimal places.
+/// This will calculate and print the value of tau to 100 decimal places.
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {
@@ -36,6 +36,6 @@ fn main() {
         eprintln!("Digits should not exceed 1,292,913,983.");
         return;
     }
-    let pi = compute_pi_str(digits);
-    println!("Pi to {} decimal places: {}", digits, pi);
+    let tau = compute_tau_str(digits);
+    println!("tau to {} decimal places: {}", digits, tau);
 }

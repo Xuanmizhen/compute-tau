@@ -1,16 +1,16 @@
 [package]
-name = "compute-pi"
+name = "compute-tau"
 version = "0.2.5"
-authors = ["Katsutoshi Seki"]
+authors = ["Katsutoshi Seki", "Xuanmizhen"]
 edition = "2018"
-description = "A Rust library designed for computing pi to millions of digits."
+description = "A Rust library designed for computing tau to millions of digits."
 license = "MIT"
-repository = "https://github.com/sekika/compute-pi"
-keywords = ["pi", "mathematics", "numerical"]
+repository = "https://github.com/Xuanmizhen/compute-tau"
+keywords = ["tau", "mathematics", "numerical"]
 categories = ["algorithms", "mathematics"]
 
 [[bin]]
-name = "compute-pi"
+name = "compute-tau"
 path = "src/main.rs"
 
 [lib]
