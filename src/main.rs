@@ -37,5 +37,5 @@ fn main() {
         return;
     }
     let tau = compute_tau_str(digits);
-    println!("tau to {} decimal places: {}", digits, tau);
+    println!("Tau to {} decimal places: {}", digits, tau);
 }

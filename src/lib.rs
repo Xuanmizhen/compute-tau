@@ -3,7 +3,7 @@
 use rug::{Float, ops::Pow};
 use std::convert::TryFrom;
 
-// TODO: Check if the number 1,292,913,982 should be the same with the main pi branch (which is 1,292,913,983).
+// TODO: Check if the number 1,292,913,982 should be the same with the upstream (which is 1,292,913,983).
 /// Calculates the value of tau to a specified number of decimal places using
 /// the Gauss-Legendre algorithm and returns Float value.
 ///
