@@ -31,7 +31,9 @@ fn main() {
         eprintln!("Usage: {} <digits>", args[0]);
         return;
     }
-    let digits: usize = args[1].parse().expect("Please provide a valid number of digits.");
+    let digits: usize = args[1]
+        .parse()
+        .expect("Please provide a valid number of digits.");
     if digits > 1_292_913_982 {
         eprintln!("Digits should not exceed 1,292,913,982.");
         return;

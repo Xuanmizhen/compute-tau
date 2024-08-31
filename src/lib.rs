@@ -1,6 +1,6 @@
 #![doc = include_str!("../README.md")]
 
-use rug::{Float, ops::Pow};
+use rug::{ops::Pow, Float};
 use std::convert::TryFrom;
 
 /// Calculates the value of tau to a specified number of decimal places using
