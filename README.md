@@ -16,7 +16,7 @@ You can include this crate in your `Cargo.toml` file as follows:
 
 ```toml
 [dependencies]
-compute-tau = "0.1"
+compute-tau = "0.2"
 ```
 
 ## Usage

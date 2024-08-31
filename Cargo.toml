@@ -1,6 +1,6 @@
 [package]
 name = "compute-tau"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Katsutoshi Seki", "Xuanmizhen"]
 edition = "2021"
 description = "A Rust library designed for computing tau to millions of digits"
