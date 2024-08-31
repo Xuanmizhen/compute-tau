@@ -3,7 +3,6 @@
 use rug::{Float, ops::Pow};
 use std::convert::TryFrom;
 
-// TODO: Check if the number 1,292,913,982 should be the same with the upstream (which is 1,292,913,983).
 /// Calculates the value of tau to a specified number of decimal places using
 /// the Gauss-Legendre algorithm and returns Float value.
 ///
@@ -55,7 +54,7 @@ pub fn compute_tau(digits: usize) -> Float {
 /// # Arguments
 ///
 /// * `digits` - The number of decimal places of tau to calculate,
-///              not to exceed 1,292,913,983.
+///              not to exceed 1,292,913,982.
 ///
 /// # Returns
 ///
