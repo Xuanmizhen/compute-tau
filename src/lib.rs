@@ -64,8 +64,7 @@ pub fn compute_tau(digits: usize) -> Float {
 pub fn compute_tau_str(digits: usize) -> String {
     let tau = compute_tau(digits);
     let tau_str = tau.to_string_radix(10, Some(digits + 5));
-    let tau_str_trimmed = tau_str[0..(digits + 2)].to_string();
-    tau_str_trimmed
+    tau_str[0..(digits + 2)].to_string()
 }
 
 #[cfg(test)]
