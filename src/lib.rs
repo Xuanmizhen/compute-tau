@@ -1,7 +1,7 @@
 #![doc = include_str!("../README.md")]
 
 use rug::{ops::Pow, Float};
-use std::convert::TryFrom;
+use std::{convert::TryFrom, f64::consts::LOG2_10};
 
 /// Calculates the value of tau to a specified number of decimal places using
 /// the Gauss-Legendre algorithm and returns Float value.
@@ -17,17 +17,17 @@ use std::convert::TryFrom;
 /// number of decimal places.
 ///
 pub fn compute_tau(digits: usize) -> Float {
-    let precision = ((digits as f64) * 3.3219280948874).ceil() as u32 + 10 + 1;
+    let precision = ((digits as f64) * (LOG2_10 + 1e-11)).ceil() as u32 + 10 + 1;
     let threshold = Float::with_val(precision, 10).pow(-i32::try_from(digits).unwrap());
     let mut a = Float::with_val(precision, 1);
     let two = Float::with_val(precision, 2);
     let mut b = Float::with_val(precision, 1.0 / two.sqrt());
     let mut t = Float::with_val(precision, 0.25);
     let mut p = Float::with_val(precision, 1);
-    let mut pi_old = Float::with_val(precision, 0);
+    let mut tau_old = Float::with_val(precision, 0);
 
-    let pi_result = loop {
-        let sum = a.clone() + b.clone();
+    loop {
+        let sum = a.clone() + &b;
         let a_next = Float::with_val(precision, &sum / 2.0);
         let product = Float::with_val(precision, &a * &b);
         b = product.sqrt();
@@ -36,16 +36,15 @@ pub fn compute_tau(digits: usize) -> Float {
         t -= &p * difference_squared;
         a = a_next;
         p *= 2;
-        let denominator = Float::with_val(precision, &t * 4.0);
+        let denominator = Float::with_val(precision, &t * 2.0);
         let numerator = Float::with_val(precision, (&sum).pow(2));
-        let pi = numerator / denominator;
-        let pi_diff = Float::with_val(pi.prec(), &pi - &pi_old).abs();
-        if pi_diff < threshold {
-            break pi;
+        let tau: Float = numerator / denominator;
+        let tau_diff = Float::with_val(tau.prec(), &tau - &tau_old).abs();
+        if tau_diff < threshold {
+            break tau;
         }
-        pi_old = pi;
-    };
-    pi_result * 2
+        tau_old = tau;
+    }
 }
 
 /// Calculates the value of tau to a specified number of decimal places using

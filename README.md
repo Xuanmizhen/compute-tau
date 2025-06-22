@@ -4,7 +4,7 @@ Compute-tau calculates the value of tau to an arbitrary number of digits using t
 
 ## About τ (tau)
 
-τ (tau) is a mathematical constant equal to 2π, approximately 6.283. Unlike the traditional circle constant π, τ represents the ratio of a circle's circumference to its radius, rather than its diameter. Advocates argue that τ simplifies formulas and makes them more intuitive, especially when dealing with angles measured in radians, where a full turn around a circle naturally corresponds to τ radians.
+τ (tau) is a mathematical constant equal to 2π, approximately 6.283. Unlike the traditional circle constant π, τ represents the ratio of a circle's circumference to its radius, rather than its diameter. τ simplifies formulas and makes them more intuitive, especially when dealing with angles measured in radians, where a full turn around a circle naturally corresponds to τ radians.
 
 For a deeper understanding of τ and its benefits, visit [The Tau Manifesto](https://tauday.com/tau-manifesto) by Michael Hartl. This manifesto delves into the reasons why τ offers a more natural and pedagogically sound approach to teaching and using mathematics compared to π.
 
