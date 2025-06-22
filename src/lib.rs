@@ -1,6 +1,6 @@
 #![doc = include_str!("../README.md")]
 
-use rug::{ops::Pow, Float};
+use rug::{Float, ops::Pow};
 use std::{convert::TryFrom, f64::consts::LOG2_10};
 
 /// Calculates the value of tau to a specified number of decimal places using
@@ -21,7 +21,7 @@ pub fn compute_tau(digits: usize) -> Float {
     let threshold = Float::with_val(precision, 10).pow(-i32::try_from(digits).unwrap());
     let mut a = Float::with_val(precision, 1);
     let two = Float::with_val(precision, 2);
-    let mut b = Float::with_val(precision, 1.0 / two.sqrt());
+    let mut b = Float::with_val(precision, two.sqrt() / 2);
     let mut t = Float::with_val(precision, 0.25);
     let mut p = Float::with_val(precision, 1);
     let mut tau_old = Float::with_val(precision, 0);
